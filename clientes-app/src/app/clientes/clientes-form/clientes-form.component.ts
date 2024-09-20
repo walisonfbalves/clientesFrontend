@@ -19,7 +19,7 @@ export class ClientesFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  salvar() {
+  onSubmit() {
     console.log(this.cliente)
   }
 }

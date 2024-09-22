@@ -2,8 +2,19 @@
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Cadastro</li>
 </ol>
-<div class="container">
+<div class="container-cadastro">
     <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row" >
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="clienteSalvo" >
+                    Cliente salvo/atualizado com sucesso!
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of erros" >
+                    {{ erros }}
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -34,7 +45,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-md-2">
                 <button type="submit" class="btn btn-success">

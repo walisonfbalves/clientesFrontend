@@ -17,8 +17,16 @@ export class ClientesService {
 
   }
 
-  getCliente(): Cliente {
-    let cliente: Cliente = new Cliente();
-    return cliente
+/*   getCliente() : Observable<Cliente[]> {
+    return null
+  } */
+
+  getCliente(): Cliente[] {
+    let cliente = new Cliente;
+    cliente.id = 1
+    cliente.nome = 'Walison'
+    cliente.cpf = '123432112392'
+    cliente.dataCadastro = '10/10/2030'
+    return [cliente]
   }
 }

@@ -4,18 +4,18 @@
 </ol>
 <div class="container-cadastro">
     <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="row" >
+        <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-success" role="alert" *ngIf="clienteSalvo" >
+                <div class="alert alert-success" role="alert" *ngIf="clienteSalvo">
                     Cliente salvo/atualizado com sucesso!
                 </div>
 
-                <div class="alert alert-danger" role="alert" *ngFor="let erro of erros" >
-                    {{ erros }}
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of erros">
+                    {{ erro }}
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="clienteSalvo">
             <div class="col-md-6">
                 <div class="form-group">
                     <label>ID:</label>
@@ -30,7 +30,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">

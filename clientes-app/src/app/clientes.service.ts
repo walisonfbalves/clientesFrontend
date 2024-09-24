@@ -17,16 +17,9 @@ export class ClientesService {
 
   }
 
-/*   getCliente() : Observable<Cliente[]> {
-    return null
-  } */
-
-  getCliente(): Cliente[] {
-    let cliente = new Cliente;
-    cliente.id = 1
-    cliente.nome = 'Walison'
-    cliente.cpf = '123432112392'
-    cliente.dataCadastro = '10/10/2030'
-    return [cliente]
+  getCliente() : Observable<Cliente[]> {
+    return this.http.get<Cliente[]>('http://localhost:8080/api/clientes')
   }
+
+  
 }

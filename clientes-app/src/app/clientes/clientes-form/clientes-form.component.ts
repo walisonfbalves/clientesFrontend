@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../clientes';
 import { ClientesService } from 'src/app/clientes.service';
-import {  Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'console';
 
 @Component({
   selector: 'app-clientes-form',
@@ -16,13 +17,28 @@ export class ClientesFormComponent implements OnInit {
 
   constructor(
     private service: ClientesService,
-    private router : Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
 
   }
 
   ngOnInit(): void {
     this.cliente = new Cliente()
+    let params = this.activatedRoute.params
+    params.subscribe(params => {
+      if (params && params['id']) {
+        let idCliente = params['id']
+        this.service.getClienteById(idCliente)
+          .subscribe(response => { this.cliente = response },
+            erroResponse => {
+              console.error('Erro ao buscar cliente:', erroResponse)
+              this.cliente = new Cliente()
+            }
+          )
+      }
+    })
+
   }
 
   onSubmit() {

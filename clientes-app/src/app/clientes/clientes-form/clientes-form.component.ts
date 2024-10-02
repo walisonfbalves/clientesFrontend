@@ -25,6 +25,7 @@ export class ClientesFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.cliente = new Cliente()
+    console.log(this.clienteSalvo)
     let params = this.activatedRoute.params
     params.subscribe(params => {
       if (params && params['id']) {

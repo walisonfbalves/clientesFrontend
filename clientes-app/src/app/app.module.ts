@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { ClientesModule } from './clientes/clientes.module';
 import { HttpClientModule  } from '@angular/common/http'
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
+import { ClientesService } from './clientes.service';
+import { ServicoPrestadoService } from './servico-prestado.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.modul
     ClientesModule,
     
   ],
-  providers: [],
+  providers: [
+    ClientesService,
+    ServicoPrestadoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
